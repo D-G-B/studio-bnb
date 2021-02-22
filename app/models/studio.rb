@@ -3,5 +3,5 @@ class Studio < ApplicationRecord
   has_many :bookings
   validates :name, :address, :equipment, :rate, presence: true
   validates :name, uniqueness: true
-  validates :category, inclusion: [ "Digital Audio workstation", "Audio interface", "Microphones", "Monitor" ]
+  validates :equipment, inclusion: [ "Digital Audio workstation", "Audio interface", "Microphones", "Monitor" ]
 end
