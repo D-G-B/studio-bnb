@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center p-3">
+    <h1><%= @studio.name %></h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <h3>Address</h3>
+      <p><%= @studio.address %></p>
+    </div>
+    <div class="col-lg-4">
+      <h3>Equipment available</h3>
+      <p><%= @studio.equipment %></p>
+    </div>
+    <div class="col-lg-4">
+      <h3>Hourly rate</h3>
+      <p><%= @studio.rate %>€/hour</p>
+    </div>
+  </div>
+
+  <%= link_to "Return to all studios", studios_path %>
+
+</div>
