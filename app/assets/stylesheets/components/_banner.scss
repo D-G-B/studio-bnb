@@ -1,8 +1,8 @@
 .home-banner {
-  background-image: asset-url("home.jpg");
+  background-image: linear-gradient(to bottom, rgba(5.5,0,0,0.5) 50%, rgba(5.5,0,0,1) 100%), asset-url("home.jpg");
   background-size: cover;
-  height: 200px;
-  color: #eee;
+  height: 100vh;
+  color: white;
   text-align: center;
   padding-top: 40vh;
 }
