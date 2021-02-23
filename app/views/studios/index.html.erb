@@ -1,0 +1,22 @@
+<div class="container p-3">
+
+  <h1 class="p-3"> Here are the studios of Studio BnB</h1>
+
+  <div class="container">
+    <div class="row">
+      <% @studios.each do |studio| %>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card-body card text-white bg-dark mb-3 mt-3" style="max-width: 18rem">
+            <div>
+              <h3><%= studio.name %></h3>
+              <p><%= studio.address %></p>
+              <p><%= studio.equipment %></p>
+              <p><%= studio.rate %>€/hour</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
