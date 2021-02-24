@@ -4,6 +4,11 @@ class StudiosController < ApplicationController
 
   def index
     @studios = Studio.all
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @studios = Studio.where(name: @name)
+    end
   end
 
   def show
