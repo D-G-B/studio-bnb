@@ -6,6 +6,18 @@
   background-color: #ee8133;
 }
 
+.btn-search {
+  background-color: #f7b358;
+  padding: 6px;
+  border-radius: 3px;
+  border: none;
+}
+
+.btn-search:hover {
+  background-color: #ee8133;
+  transition: 0.3s;
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
