@@ -1,6 +1,7 @@
 class StudiosController < ApplicationController
-  before_action :find_studio, only: [ :show, :destroy]
-  skip_before_action :authenticate_user!, only: [ :index, :show, :destroy, :daw, :audio_interface, :micro, :monitor]
+
+  before_action :store_location, :find_studio, only: [ :show, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
 
   def index
     @studios = Studio.all
