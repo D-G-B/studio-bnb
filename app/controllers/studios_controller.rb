@@ -30,12 +30,6 @@ class StudiosController < ApplicationController
     end
   end
 
-private
-
-  def studio_params
-    params.require(:studio).permit(:name, :address, :equipment, :rate)
-  end
-
   def daw
     @studios = Studio.where(equipment: "Digital Audio workstation")
   end
@@ -50,6 +44,12 @@ private
   
   def monitor
     @studios = Studio.where(equipment: "Monitor")
+  end
+
+private
+
+  def studio_params
+    params.require(:studio).permit(:name, :address, :equipment, :rate)
   end
 
 end
