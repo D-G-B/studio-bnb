@@ -1,5 +1,5 @@
 class StudiosController < ApplicationController
-
+  before_action :store_location
   skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
 
   def index
