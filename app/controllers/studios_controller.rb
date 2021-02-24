@@ -16,16 +16,25 @@ class StudiosController < ApplicationController
     @booking = Booking.new
   end
 
-
   def new
     @studio = Studio.new
   end
 
   def create
-
+    @studio = Studio.new(studio_params)
+    @studio.user_id = current_user.id
+    if @studio.save
+      redirect_to studios_path(@studio)
+    else
+      render :new
+    end
   end
 
-  
+private
+
+  def studio_params
+    params.require(:studio).permit(:name, :address, :equipment, :rate)
+  end
 
   def daw
     @studios = Studio.where(equipment: "Digital Audio workstation")
