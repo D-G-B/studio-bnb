@@ -1,2 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.equipment {
+  display: flex;
+  justify-content: space-around;
+}
