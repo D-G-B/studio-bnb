@@ -1,6 +1,6 @@
 class StudiosController < ApplicationController
-
-  skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
+  before_action :find_studio, only: [ :show, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :destroy, :daw, :audio_interface, :micro, :monitor]
 
   def index
     @studios = Studio.all
@@ -12,7 +12,6 @@ class StudiosController < ApplicationController
   end
 
   def show
-    @studio = Studio.find(params[:id])
     @booking = Booking.new
   end
 
@@ -27,6 +26,11 @@ class StudiosController < ApplicationController
       redirect_to studios_path(@studio)
     else
       render :new
+    end
+
+    def destroy
+      @studio.destroy
+      redirect_to studios_path, notice: 'Your Studio has been deleted!'
     end
   end
 
@@ -47,6 +51,10 @@ class StudiosController < ApplicationController
   end
 
 private
+
+  def find_studio
+    @studio = Studio.find(params[:id])
+  end
 
   def studio_params
     params.require(:studio).permit(:name, :address, :equipment, :rate)

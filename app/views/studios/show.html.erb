@@ -15,6 +15,9 @@
     <div class="col-lg-4">
       <h3>Hourly rate</h3>
       <p><%= @studio.rate %>€/hour</p>
+    <div>
+      <%= link_to '<i class="fa fa-trash destroy_booking"></i>'.html_safe, studio_path(@studio), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
     </div>
 
     <ul class="list-group">
