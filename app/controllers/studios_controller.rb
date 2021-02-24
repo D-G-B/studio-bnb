@@ -1,6 +1,6 @@
 class StudiosController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [ :index, :show]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
 
   def index
     @studios = Studio.all
