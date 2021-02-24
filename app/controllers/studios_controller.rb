@@ -13,7 +13,19 @@ class StudiosController < ApplicationController
 
   def show
     @studio = Studio.find(params[:id])
+    @booking = Booking.new
   end
+
+
+  def new
+    @studio = Studio.new
+  end
+
+  def create
+
+  end
+
+  
 
   def daw
     @studios = Studio.where(equipment: "Digital Audio workstation")
@@ -30,4 +42,5 @@ class StudiosController < ApplicationController
   def monitor
     @studios = Studio.where(equipment: "Monitor")
   end
+
 end
