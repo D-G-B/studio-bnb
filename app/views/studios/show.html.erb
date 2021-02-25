@@ -50,12 +50,12 @@
         <%= simple_form_for [@studio, @booking] do |f| %>
 
           <div class="form-inputs">
-            <%= f.input :start_date, as: :datetime %>
-            <%= f.input :end_date, as: :datetime %>
+            <%= f.input :start_date, as: :datetime, required: false, input_html: {id: "range_start"} %>
+            <%= f.input :end_date, as: :datetime, required: false, input_html: {id: "range_end"} %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, class: "btn btn-orange" %>
+            <%= f.button :submit, "Book Now", class: "btn btn-orange" %>
           </div>
 
         <% end %>
@@ -69,3 +69,4 @@
   </div>
 
 </div>
+
