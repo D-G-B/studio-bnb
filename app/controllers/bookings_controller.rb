@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.studio = @studio
+    authorize @booking.studio
     @booking.user = current_user
     @booking.total_price = @studio.rate * total_hours
     if @booking.save
@@ -29,7 +30,7 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:end_date, :start_date)
   end
-  
+
   def find_studio
     @studio = Studio.find(params[:studio_id])
   end
