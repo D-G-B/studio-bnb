@@ -23,7 +23,9 @@
         <% end %>
       </div>
       <div class="align-self-center">
-        <%= link_to 'Edit studio <i class="fas fa-edit"></i>'.html_safe, edit_studio_path(@studio), class: 'ml-3 text-warning' %>
+        <% if policy(@studio).update? %>
+          <%= link_to 'Edit studio <i class="fas fa-edit"></i>'.html_safe, edit_studio_path(@studio), class: 'ml-3 text-warning' %>
+        <% end %>
       </div>
     </div>
   </div>

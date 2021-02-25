@@ -18,3 +18,35 @@ a:hover {
 .text-center {
   text-align: center;
 }
+
+.card {
+  box-shadow: 0 -2px 10px rgba(0,0,0,1);
+  border-radius: 25px;
+}
+
+.card-img, .card-img-top {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 190px;
+}
+
+.content-wrapper {
+  background-color: #343A40 ;
+}
+
+.form-control {
+  background-color: #343A40;
+  border: 1px solid #ffb427;
+  &:focus {
+    background-color: #343A40;
+    color: #e9ecef;
+  }
+}
+
+.btn-search {
+  margin-left: 3px;
+}
+
+#index-heading {
+  color:#e9ecef;
+}

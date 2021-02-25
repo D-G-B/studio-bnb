@@ -12,7 +12,7 @@ class StudiosController < ApplicationController
       sql_query = "name ILIKE :query OR equipment ILIKE :query OR address ILIKE :query"
     @studios = Studio.where(sql_query, query: "%#{params[:query]}%")
     else
-      @movies = Studio.all 
+      @movies = Studio.all
     end
   end
 
@@ -42,6 +42,7 @@ class StudiosController < ApplicationController
     end
 
     def update
+      authorize @studio
       @studio.update(studio_params)
       redirect_to studios_path(@studio)
     end
