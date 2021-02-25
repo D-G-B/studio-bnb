@@ -19,46 +19,34 @@ a:hover {
   text-align: center;
 }
 
-// css for studio cards below
-
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.card {
+  box-shadow: 0 -2px 10px rgba(0,0,0,1);
+  border-radius: 25px;
 }
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+.card-img, .card-img-top {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 190px;
 }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.content-wrapper {
+  background-color: #343A40 ;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+.form-control {
+  background-color: #343A40;
+  border: 1px solid #ffb427;
+  &:focus {
+    background-color: #343A40;
+    color: #e9ecef;
+  }
 }
 
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+.btn-search {
+  margin-left: 3px;
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+#index-heading {
+  color:#e9ecef;
 }
-
-// css for studio cards above

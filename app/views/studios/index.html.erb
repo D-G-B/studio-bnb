@@ -1,46 +1,44 @@
-<div class="d-flex justify-content-around">
-<div class="row p-3" class="index-main">
-  <div class="col-lg-6">
-    <div class="text-center">
+<div class="container p-3">
+<div class="contaner p-3 m-3">
+  <div class="row p-3" class="index-main">
+    <div class="col-lg-6 text-center">
       <% if policy(Studio).create? %>
         <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
       <% end %>
     </div>
-  </div>
-  
-  <div class="col-lg-6">
-    <div class="text-center">
-      <%= form_tag studios_path, method: :get, class: "form-inline" do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a studio"
-        %>
-        <%= submit_tag "Search", class: "btn btn-orange" %>
+
+    <div class="col-lg-6 text-center">
+      <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :name, label: false, input_html: {value: ""} %>
+        <%= f.submit "Search", class: "btn-search" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<div class="container p-3">
 
-  <h1 class="p-3"> Here are the studios</h1>
+
+
+  <h1 class="p-3 text-center " id="index-heading"> Here are the studios</h1>
 
   <div class="container">
 
-    <div class="row">
+    <div class="row justify-content-center">
+    <% number = 1 %>
       <% @studios.each do |studio| %>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card-body card text-white bg-dark mb-3 mt-3" style="max-width: 18rem">
-            <div>
-              <h3><%= link_to studio.name, studio_path(studio.id) %></h3>
-              <p><%= studio.address %></p>
-              <p><%= studio.equipment %></p>
-              <p><%= studio.rate %>€/hour</p>
-            </div>
+
+        <div class="card text-white bg-dark m-3" style="max-width: 18rem">
+        <img class="card-img-top" src="https://source.unsplash.com/collection/948920/<%= number %>" alt="Card image cap">
+          <div class="card-body">
+            <p><%= link_to studio.name, studio_path(studio.id) %></p>
+            <p class="card-text"><%= studio.address %></p>
+            <p class="card-text"><%= studio.equipment %></p>
+            <p class="card-text"><%=studio.rate %>€/hour</p>
           </div>
         </div>
+      <% number += 1 %>
       <% end %>
+
     </div>
 
   </div>
