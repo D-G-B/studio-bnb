@@ -15,9 +15,11 @@
     <div class="col-lg-4">
       <h3>Hourly rate</h3>
       <p><%= @studio.rate %>€/hour</p>
- 
+
       <div>
+        <% if policy(@studio).update? %>
         <%= link_to 'Edit', edit_studio_path(@studio), class: 'ml-3 text-warning' %>
+        <% end %>
       </div>
 
     <div>

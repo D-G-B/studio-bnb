@@ -9,10 +9,10 @@ class StudiosController < ApplicationController
     @studios = policy_scope(Studio).order(created_at: :desc)
     #Searchbar
     if params[:query].present?
-      sql_query = "name ILIKE :query OR equipment ILIKE :query OR address ILIKE :query"
+      sql_query = "name ILIKE :query OR equipment ILIKE :query OR ad21dress ILIKE :query"
     @studios = Studio.where(sql_query, query: "%#{params[:query]}%")
     else
-      @movies = Studio.all 
+      @movies = Studio.all
     end
   end
 
@@ -42,6 +42,7 @@ class StudiosController < ApplicationController
     end
 
     def update
+      authorize @studio
       @studio.update(studio_params)
       redirect_to studios_path(@studio)
     end
