@@ -5,12 +5,22 @@ class StudiosController < ApplicationController
 
   def index
     @studios = policy_scope(Studio)
+    @studios = Studio.all
     @search = params["search"]
     if @search.present?
       @name = @search["name"]
       @studios = Studio.where("name ILIKE ?", "%#{@name}%")
     end
     @studios = policy_scope(Studio).order(created_at: :desc)
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+      @markers = @studios.geocoded.map do |studio|
+        {
+          lat: studio.latitude,
+          lng: studio.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
+        }
+      end
   end
 
   def show

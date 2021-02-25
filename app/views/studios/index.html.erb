@@ -7,41 +7,32 @@
   </div>
   <div class="col-lg-3">
     <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""} %>
+      <%= f.input :name, label: false, input_html: {value: ""} %>
       <%= f.submit "Search", class: "btn-search" %>
     <% end %>
   </div>
-  <div class="col-lg-6">
-    <div class="equipment">
-      <p><%= link_to "Digital Audio Workstations", daw_studios_path %></p>
-      <p><%= link_to "Audio interface",  audio_interface_studios_path %></p>
-      <p><%= link_to "Monitor",  monitor_studios_path %></p>
-      <p><%= link_to "Microphones",  micro_studios_path %></p>
-    </div>
-  </div>
 </div>
 
-<div class="container p-3">
-
+<div class="container pl-3">
   <h1 class="p-3"> Here are the studios</h1>
-
-  <div class="container">
-
     <div class="row">
-      <% @studios.each do |studio| %>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card-body card text-white bg-dark mb-3 mt-3" style="max-width: 18rem">
-            <div>
-              <h3><%= link_to studio.name, studio_path(studio.id) %></h3>
-              <p><%= studio.address %></p>
-              <p><%= studio.equipment %></p>
-              <p><%= studio.rate %>€/hour</p>
-            </div>
-          </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <div id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      <% end %>
+        <div class="row">
+          <% @studios.each do |studio| %>
+            <div class="col-5 col-md-5 col-lg-5 card-body card text-white bg-dark m-3">
+              <div>
+                <h3><%= link_to studio.name, studio_path(studio.id) %></h3>
+                <p><%= studio.address %></p>
+                <p><%= studio.equipment %></p>
+                <p><%= studio.rate %>€/hour</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-  </div>
-
 </div>
