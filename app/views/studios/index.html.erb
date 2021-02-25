@@ -1,22 +1,23 @@
-
+<div class="d-flex justify-content-around">
 <div class="row p-3" class="index-main">
-  <div class="col-lg-3">
-    <% if policy(Studio).create? %>
-      <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
-    <% end %>
-  </div>
-  <div class="col-lg-3">
-    <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""} %>
-      <%= f.submit "Search", class: "btn-search" %>
-    <% end %>
-  </div>
   <div class="col-lg-6">
-    <div class="equipment">
-      <p><%= link_to "Digital Audio Workstations", daw_studios_path %></p>
-      <p><%= link_to "Audio interface",  audio_interface_studios_path %></p>
-      <p><%= link_to "Monitor",  monitor_studios_path %></p>
-      <p><%= link_to "Microphones",  micro_studios_path %></p>
+    <div class="text-center">
+      <% if policy(Studio).create? %>
+        <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="col-lg-6">
+    <div class="text-center">
+      <%= form_tag studios_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a studio"
+        %>
+        <%= submit_tag "Search", class: "btn btn-orange" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -30,15 +31,13 @@
     <div class="row">
       <% @studios.each do |studio| %>
         <div class="col-12 col-md-6 col-lg-3">
-          <div class="card-trip card-body card text-white bg-dark mb-3 mt-3" style="max-width: 18rem">
-          <img src="https://source.unsplash.com/collection/948920?sig=420"/>
-            <div class="card-trip-infos">
-              <h2><%= link_to studio.name, studio_path(studio.id) %></h3>
+          <div class="card-body card text-white bg-dark mb-3 mt-3" style="max-width: 18rem">
+            <div>
+              <h3><%= link_to studio.name, studio_path(studio.id) %></h3>
               <p><%= studio.address %></p>
               <p><%= studio.equipment %></p>
+              <p><%= studio.rate %>€/hour</p>
             </div>
-            <h2 class="card-trip-pricing"><%= studio.rate %>€/hour</h2>
-            <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
           </div>
         </div>
       <% end %>
@@ -47,4 +46,3 @@
   </div>
 
 </div>
-
