@@ -16,6 +16,13 @@
       <h3>Hourly rate</h3>
       <p><%= @studio.rate %>€/hour</p>
     </div>
+
+    <div>
+      <% if policy(@studio).update? %>
+      <%= link_to 'Edit', edit_studio_path(@studio), class: 'ml-3 text-warning' %>
+      <% end %>
+    </div>
+
     <div>
     <% if policy(@studio).destroy? %>
       <%= link_to '<i class="fa fa-trash destroy_booking"></i>'.html_safe, studio_path(@studio), method: :delete, data: { confirm: "Are you sure?" } %>
