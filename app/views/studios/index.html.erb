@@ -1,22 +1,23 @@
 
 <div class="row p-3" class="index-main">
-  <div class="col-lg-3">
-    <% if policy(Studio).create? %>
-      <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
-    <% end %>
-  </div>
-  <div class="col-lg-3">
-    <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""} %>
-      <%= f.submit "Search", class: "btn-search" %>
-    <% end %>
-  </div>
   <div class="col-lg-6">
-    <div class="equipment">
-      <p><%= link_to "Digital Audio Workstations", daw_studios_path %></p>
-      <p><%= link_to "Audio interface",  audio_interface_studios_path %></p>
-      <p><%= link_to "Monitor",  monitor_studios_path %></p>
-      <p><%= link_to "Microphones",  micro_studios_path %></p>
+    <div class="text-center">
+      <% if policy(Studio).create? %>
+        <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="col-lg-6">
+    <div class="text-center">
+      <%= form_tag studios_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a studio"
+        %>
+        <%= submit_tag "Search", class: "btn btn-orange" %>
+      <% end %>
     </div>
   </div>
 </div>
