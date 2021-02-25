@@ -31,7 +31,7 @@ class StudiosController < ApplicationController
     authorize @studio
     @studio.user_id = current_user.id
     if @studio.save
-      redirect_to studios_path(@studio)
+      redirect_to studio_path(@studio)
     else
       render :new
     end
@@ -44,7 +44,7 @@ class StudiosController < ApplicationController
     def update
       authorize @studio
       @studio.update(studio_params)
-      redirect_to studios_path(@studio)
+      redirect_to studio_path(@studio)
     end
 
   def destroy
