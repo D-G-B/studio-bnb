@@ -1,11 +1,13 @@
 
 <div class="row p-3" class="index-main">
   <div class="col-lg-3">
-    <p class="text-center"><%= link_to "Add your studio", new_studio_path, class: "btn btn-orange" %></p>
+    <% if policy(Studio).create? %>
+      <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
+    <% end %>
   </div>
   <div class="col-lg-3">
     <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""} %>   
+      <%= f.input :name, input_html: {value: ""} %>
       <%= f.submit "Search", class: "btn-search" %>
     <% end %>
   </div>
@@ -22,7 +24,7 @@
 <div class="container p-3">
 
   <h1 class="p-3"> Here are the studios</h1>
-  
+
   <div class="container">
 
     <div class="row">
