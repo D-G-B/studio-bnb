@@ -1,6 +1,6 @@
 class StudiosController < ApplicationController
 
-  before_action :store_location, :find_studio, only: [ :show, :destroy]
+  before_action :store_location, :find_studio, only: [ :show, :destroy, :edit, :update]
   skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
 
   def index
@@ -34,11 +34,21 @@ class StudiosController < ApplicationController
     end
   end
 
+
+    def edit
+    end
+
+    def update
+      @studio.update(studio_params)
+      redirect_to studios_path(@studio)
+    end
+
   def destroy
     authorize @studio
     @studio.destroy
     redirect_to studios_path, notice: 'Your Studio has been deleted!'
   end
+
 
   def daw
     @studios = Studio.where(equipment: "Digital Audio workstation")
