@@ -1,19 +1,23 @@
+
 <div class="container">
-  <div class="contaner p-3">
+  <div class="container p-3">
     <div class="row p-3" class="index-main">
       <div class="col-lg-6 text-center">
         <% if policy(Studio).create? %>
           <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
         <% end %>
       </div>
-
       <div class="col-lg-6 text-center">
-        <%= simple_form_for :search, url: studios_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :name, label: false, input_html: {value: ""} %>
-          <%= f.submit "Search", class: "btn-search" %>
+        <%= form_tag studios_path, method: :get, class: "form-inline" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a studio"
+          %>
+          <%= submit_tag "Search", class: "btn btn-orange" %>
         <% end %>
       </div>
-    </div>
+    </div>  
   </div>
 
   <h1 class="p-3 text-center " id="index-heading"> Here are the studios</h1>
