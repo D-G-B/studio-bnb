@@ -22,12 +22,14 @@ a:hover {
 .card {
   box-shadow: 0 -2px 10px rgba(0,0,0,1);
   border-radius: 25px;
+  display: grid;
+
 }
 
 .card-img, .card-img-top {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  height: 190px;
+  height: 120px;
 }
 
 .content-wrapper {
@@ -55,4 +57,28 @@ a:hover {
   position: absolute;
   right: 0%;
 }
+
+.map-sticky {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.cards-map {
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 1000px;
+}
+
+.card-height {
+  height: 250px;
+}
+
+.card-pad {
+  padding: 5px;
+}
+
+
+
 
