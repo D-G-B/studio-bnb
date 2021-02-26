@@ -52,20 +52,15 @@
             <%= f.input :start_date, as: :string, required: false, input_html: {id: "date-picker"} %>
             <%= f.input :end_date, as: :string, required: false, input_html: {id: "date-picker"} %>
           </div>
-
-          <div class="form-actions">
+          <div class="d-flex justify-content-between">
             <%= f.button :submit, "Book Now", class: "btn btn-orange" %>
+            <%= link_to "Return to all studios", studios_path, class: "btn btn-secondary" %>
           </div>
-
         <% end %>
 
       </div>
     </div>
 
-  </div>
-
-  <div class="p-3">
-    <%= link_to "Return to all studios", studios_path, class: "btn btn-secondary" %>
   </div>
 
 </div>

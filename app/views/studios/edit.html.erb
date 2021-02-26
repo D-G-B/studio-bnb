@@ -7,9 +7,12 @@
         <%= f.input :address %>
         <%= f.input :equipment, as: :select, collection: Studio::CATEGORIES %>
         <%= f.input :rate %>
-        <%= f.submit "Edit it", class: "btn btn-orange" %>
-          <% end %>
-        <%= link_to "Cancel", studios_path, class: "btn btn-secondary" %>
+        <div class="d-flex justify-content-between">
+          <%= f.submit "Edit it", class: "btn btn-orange" %>
+          <%= link_to "Cancel", studios_path, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+        
     </div>
   </div>
 </div>
