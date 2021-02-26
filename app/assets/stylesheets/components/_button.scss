@@ -2,12 +2,12 @@
   background-color: #f7b358;
 }
 
-.btn-margin{
-  margin-right: 25px;
-}
-
 .btn-orange:hover {
   background-color: #ee8133;
+}
+
+.btn-margin{
+  margin-right: 25px;
 }
 
 .btn-search {
@@ -34,4 +34,15 @@
 
 .btn-ghost:hover {
   opacity: 1;
+}
+
+btn-grey {
+  background-color: #6c757d;
+  padding: 6px;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #5a6268;
+    transition: 0.3s;
+  }
 }
