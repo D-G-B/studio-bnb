@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8" id="text-white">
       <h1> Log in 🎶 </h1>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.input :email,
@@ -11,12 +11,15 @@
                     required: false,
                     input_html: { autocomplete: "email" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      <div class="form-actions">
-        <%= f.button :submit, "Submit", class: "btn btn-ghost" %>
-      </div>
-        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Submit", class: "btn btn-orange" %>
+        </div>
+      <% end %>
     </div>
+  </div>
+  <div class="p-3">
+    <%= render "devise/shared/links" %>
   </div>
 </div>
 
-<%= render "devise/shared/links" %>
+

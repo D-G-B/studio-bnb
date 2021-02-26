@@ -4,8 +4,6 @@ class StudiosController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show, :daw, :audio_interface, :micro, :monitor]
 
   def index
-    #Pundit
-    @studios = policy_scope(Studio)
     @studios = policy_scope(Studio).order(created_at: :desc)
     #Searchbar
     if params[:query].present?
@@ -14,6 +12,14 @@ class StudiosController < ApplicationController
     else
       @movies = Studio.all
     end
+      # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+      @markers = @studios.geocoded.map do |studio|
+        {
+          lat: studio.latitude,
+          lng: studio.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
+        }
+      end
   end
 
   def show

@@ -33,6 +33,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 gem 'turbolinks_render'
+gem 'geocoder'
+
 
 group :development, :test do
   gem 'pry-byebug'
