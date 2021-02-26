@@ -1,0 +1,22 @@
+
+// bookings list
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #343a40;
+  border: 1px solid #ffb427;
+}
+
+.list-group-item + .list-group-item {
+  border-top-width: 1px;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color:#343a40;
+  opacity: 1;
+}
+
+.form-control {
+  color: #e9ecef;
+}
