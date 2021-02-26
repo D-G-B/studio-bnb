@@ -3,10 +3,10 @@
     <div id="text-white" class="col-md-8">
       <h1> Your studio details 🙂 </h1>
       <%= simple_form_for @studio do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :equipment, as: :select, collection: Studio::CATEGORIES %>
-        <%= f.input :rate %>
+        <%= f.input :name, label: false, placeholder: "Name" %>
+        <%= f.input :address, label:false, placeholder: "Address" %>
+        <%= f.input :equipment, label:false, prompt: "Please select an audio equipment", as: :select, collection: Studio::CATEGORIES %>
+        <%= f.input :rate, label:false, placeholder: "Rate (€)" %>
         <%= f.hidden_field :latitude %>
         <%= f.hidden_field :longitude %>
         <div class="d-flex justify-content-between">
