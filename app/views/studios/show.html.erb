@@ -31,7 +31,11 @@
   </div>
 
   <ul class="list-group">
-  <h5 class="m-3">Your bookings</h5>
+    <% if @studio.bookings.exists? %>
+      <h5 class="m-3">Your bookings</h5>
+    <% else %>
+      <h5></h5>
+     <% end %>
     <% @studio.bookings.each do |booking| %>
       <li class="list-group-item m-3">
         <%= booking.start_date %> - <%= booking.end_date %> - €<%= booking.total_price %>
