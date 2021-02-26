@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div id="text-white" class="col-md-8">
-      <h1> Fill in your Studio details below 🙂 </h1>
+      <h1> Your studio details 🙂 </h1>
       <%= simple_form_for @studio do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
@@ -10,10 +10,9 @@
         <%= f.hidden_field :latitude %>
         <%= f.hidden_field :longitude %>
         <div class="d-flex justify-content-between">
-          <%= f.submit "Add your Studio!", class: "btn btn-orange" %> <%= link_to "Go back", studios_path, class: "btn btn-secondary" %>
+          <%= f.submit "Add your studio!", class: "btn btn-orange" %> <%= link_to "Go back", studios_path, class: "btn btn-secondary" %>
           <% end %>
         </div>
-        
     </div>
   </div>
 </div>

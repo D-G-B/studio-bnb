@@ -20,24 +20,24 @@
           </div>
         <% end %>
       </div>
-    </div>  
+    </div>
   </div>
 
-  <h1 class="p-3 text-center " id="index-heading"> Here are the studios</h1>
+  <h1 class="p-3 text-center " id="index-heading"> Studios</h1>
 
     <div class="row justify-content-center">
       <div class="col-8">
         <div class="row">
         <% number = 1 %>
           <% @studios.each do |studio| %>
-            <div class="col-4 card-pad">
+            <div class="col-5 card-pad">
               <div class="card text-white bg-dark mt-3">
               <img class="card-img-top" src="https://source.unsplash.com/collection/948920/<%= number %>" alt="Card image cap">
                 <div class="card-body card-height">
                   <p><%= link_to studio.name, studio_path(studio.id) %></p>
                   <p class="card-text"><%= studio.address %></p>
                   <p class="card-text"><%= studio.equipment %></p>
-                  <p class="card-text"><%=studio.rate %>€/hour</p>
+                  <p class="card-text">€<%=studio.rate %>/hour</p>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-4 map-sticky mt-4" id="map"
+      <div class="col-4 map-sticky mt-4 map-style" id="map"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>

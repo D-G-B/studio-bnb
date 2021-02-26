@@ -1,18 +1,17 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1> Edit the studio 🙂 </h1>
+      <h1> Edit your studio ✏️ </h1>
       <%= simple_form_for @studio do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
         <%= f.input :equipment, as: :select, collection: Studio::CATEGORIES %>
         <%= f.input :rate %>
         <div class="d-flex justify-content-between">
-          <%= f.submit "Edit it", class: "btn btn-orange" %>
+          <%= f.submit "Edit your studio!", class: "btn btn-orange" %>
           <%= link_to "Cancel", studios_path, class: "btn btn-secondary" %>
         </div>
       <% end %>
-        
     </div>
   </div>
 </div>
