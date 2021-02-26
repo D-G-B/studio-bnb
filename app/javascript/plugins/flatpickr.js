@@ -1,14 +1,21 @@
 import flatpickr from "flatpickr";
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
+import minMaxTimePlugin from "flatpickr/dist/plugins/minMaxTimePlugin";
 
 const initFlatpickr = () => {
-  flatpickr("#range_start", {
-    allowInput: true,
-    altInput: true,
+  flatpickr("#date-picker", {
     enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    plugins: [new rangePlugin({ input: "#range_end"})]
-  });
-}
+    minDate: "2025",
+    plugins: [
+        new minMaxTimePlugin({
+            table: {
+                "2025-01-10": {
+                    minTime: "16:00",
+                    maxTime: "22:00",
+                }
+            }
+        })
+    ]
+  })
+};
 
 export { initFlatpickr };
