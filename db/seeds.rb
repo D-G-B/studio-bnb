@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Studio.destroy_all;
 
 puts 'Creating 10 fake studios...'
 10.times do
   EQUIPMENT = [ "Digital Audio workstation", "Audio interface", "Microphones", "Monitor" ]
   studio = Studio.new(
     name:    Faker::Company.name,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    # address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    address: '16 Villa Gaudelet, Paris',
     equipment: EQUIPMENT.sample,
     rate: rand(50..100).to_i,
     user_id: 1

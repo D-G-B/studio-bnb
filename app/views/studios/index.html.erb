@@ -1,11 +1,12 @@
-<div class="container p-3">
-  <div class="container p-3 m-3">
+
+<div class="container">
+  <div class="container p-3">
     <div class="row p-3" class="index-main">
       <div class="col-lg-6 text-center">
         <% if policy(Studio).create? %>
           <%= link_to "Add your studio", new_studio_path, class: "btn btn-orange text-center" %>
         <% end %>
-      </div
+      </div>
       <div class="col-lg-6 text-center">
         <%= form_tag studios_path, method: :get, class: "form-inline" do %>
           <%= text_field_tag :query,
@@ -21,27 +22,30 @@
 
   <h1 class="p-3 text-center " id="index-heading"> Here are the studios</h1>
 
-  <div class="container">
-
     <div class="row justify-content-center">
-      <% number = 1 %>
-      <% @studios.each do |studio| %>
-
-        <div class="card text-white bg-dark m-3" style="max-width: 18rem">
-          <img class="card-img-top" src="https://source.unsplash.com/collection/948920/<%= number %>" alt="Card image cap"/>
-            <div class="card-body">
-              <p><%= link_to studio.name, studio_path(studio.id) %></p>
-              <p class="card-text"><%= studio.address %></p>
-              <p class="card-text"><%= studio.equipment %></p>
-              <p class="card-text"><%=studio.rate %>€/hour</p>
+      <div class="col-8">
+        <div class="row">
+        <% number = 1 %>
+          <% @studios.each do |studio| %>
+            <div class="col-4 card-pad">
+              <div class="card text-white bg-dark mt-3">
+              <img class="card-img-top" src="https://source.unsplash.com/collection/948920/<%= number %>" alt="Card image cap">
+                <div class="card-body card-height">
+                  <p><%= link_to studio.name, studio_path(studio.id) %></p>
+                  <p class="card-text"><%= studio.address %></p>
+                  <p class="card-text"><%= studio.equipment %></p>
+                  <p class="card-text"><%=studio.rate %>€/hour</p>
+                </div>
+              </div>
             </div>
+          <% number += 1 %>
+          <% end %>
         </div>
-        
-        <% number += 1 %>
-      <% end %>
-
+      </div>
+      <div class="col-4 map-sticky mt-4" id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-
   </div>
 
-</div>
