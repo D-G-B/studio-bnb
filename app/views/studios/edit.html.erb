@@ -8,7 +8,7 @@
         <%= f.input :equipment, label:false, prompt: "Please select an audio equipment", as: :select, collection: Studio::CATEGORIES %>
         <%= f.input :rate, label:false, placeholder: "Rate (€)" %>
         <div class="d-flex justify-content-between">
-          <%= f.submit "Edit your studio!", class: "btn btn-orange" %>
+          <%= f.submit "Edit!", class: "btn btn-orange" %>
           <%= link_to "Cancel", studios_path, class: "btn btn-secondary" %>
         </div>
       <% end %>
