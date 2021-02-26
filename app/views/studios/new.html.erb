@@ -3,15 +3,15 @@
     <div id="text-white" class="col-md-8">
       <h1> Fill in your Studio details below 🙂 </h1>
       <%= simple_form_for @studio do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :equipment, as: :select, collection: Studio::CATEGORIES %>
-        <%= f.input :rate %>
+        <%= f.input :name, label: false, placeholder: "Name" %>
+        <%= f.input :address, label:false, placeholder: "Address" %>
+        <%= f.input :equipment, label:false, prompt: "Please select an audio equipment", as: :select, collection: Studio::CATEGORIES %>
+        <%= f.input :rate, label:false, placeholder: "Rate (€)" %>
         <div class="d-flex justify-content-between">
           <%= f.submit "Add your Studio!", class: "btn btn-orange" %> <%= link_to "Go back", studios_path, class: "btn btn-orange" %>
           <% end %>
         </div>
-        
+
     </div>
   </div>
 </div>
