@@ -23,6 +23,8 @@ class StudiosController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @bookings = policy_scope(Booking).order(created_at: :desc).where(user_id: @user)
     @booking = Booking.new
     authorize @studio
   end

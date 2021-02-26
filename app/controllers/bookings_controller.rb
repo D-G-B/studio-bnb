@@ -1,8 +1,15 @@
 class BookingsController < ApplicationController
   before_action :find_studio, only: [ :new, :create]
 
+  def index
+    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+  end
+
   def new
     @booking = Booking.new
+
   end
 
   def create
@@ -20,8 +27,9 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
+    @booking.destroy!
     redirect_to studio_path(@booking.studio), notice: 'Your booking has been deleted!'
+    authorize @booking
   end
 
 
