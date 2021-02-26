@@ -9,8 +9,8 @@ const initFlatpickr = () => {
         new minMaxTimePlugin({
             table: {
                 "2021-02-26": {
-                    minTime: "12:00",
-                    maxTime: "22:00",
+                    minTime: "10:00",
+                    maxTime: "24:00",
                 }
             }
         })
