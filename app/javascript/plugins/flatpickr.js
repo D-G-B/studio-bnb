@@ -10,7 +10,7 @@ const initFlatpickr = () => {
             table: {
                 "2021-02-26": {
                     minTime: "12:00",
-                    maxTime: "22:00",
+                    maxTime: "22:00"
                 }
             }
         })
