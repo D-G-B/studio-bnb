@@ -7,6 +7,8 @@
         <%= f.input :address %>
         <%= f.input :equipment, as: :select, collection: Studio::CATEGORIES %>
         <%= f.input :rate %>
+        <%= f.hidden_field :latitude %>
+        <%= f.hidden_field :longitude %>
         <div class="d-flex justify-content-between">
           <%= f.submit "Add your Studio!", class: "btn btn-orange" %> <%= link_to "Go back", studios_path, class: "btn btn-orange" %>
           <% end %>
